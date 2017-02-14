@@ -11,6 +11,23 @@
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	document.body.appendChild(renderer.domElement);
 
+	camera.position.z = 2;
+	camera.position.y = 1;
+
+
+	let geometry = new THREE.BoxGeometry(1,1,1);
+	let grounMaterial = new THREE.MeshPhongMaterial({
+		color: 0xffffff
+	});
+	let mesh = new THREE.Mesh(geometry, grounMaterial);
+
+	let pointLight = new THREE.PointLight(0xdfebff);
+	pointLight.position.y = 30;
+
+	scene.add(mesh);
+	scene.add(new THREE.AmbientLight(0x404040));
+	scene.add(pointLight);
+
 
 	function loop()
 	{
